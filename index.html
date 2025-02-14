@@ -6,69 +6,103 @@
     <title>诚挚的道歉</title>
     <style>
         body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             margin: 0;
-            background-color: #f3f4f9;
-            font-family: 'Arial', sans-serif;
+            overflow: hidden; /* Prevent scrollbars */
+            background-color: #fff; /* Set a dark background */
         }
 
-        .container {
-            text-align: center;
-            max-width: 600px;
-            padding: 30px;
-            background-color: #fff;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        .background-text {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            color: #ed1111; /* White text */
+            font-family: monospace; /* Use a monospace font for the effect */
+            font-size: 20px; /* Adjust font size as needed */
+            opacity: 0; /* Initially hidden */
+            transition: opacity 3s ease-in-out; /* Smooth transition */
         }
 
-        .header {
-            font-size: 1.8em;
-            color: #e91e63;
-            margin-bottom: 20px;
+        .background-text.show {
+            opacity: 1; /* Make text visible after 3 seconds */
         }
+        .right{
+            float:left;
+            font-size: large;
+            font-family: 'Source Han Sans', cursive;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .firework {
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
+  animation: explode 2s forwards;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
-        .message {
-            font-size: 1.2em;
-            color: #555;
-            margin-bottom: 30px;
-            line-height: 1.6;
-        }
+}
 
-        .apology {
-            font-size: 1.5em;
-            font-weight: bold;
-            color: #f44336;
-        }
+@keyframes explode {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(3);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(5);
+    opacity: 0;
+  }
+}
+        
 
-        .footer {
-            margin-top: 20px;
-            font-size: 1em;
-            color: #999;
-        }
-
-        /* Mobile responsive */
-        @media (max-width: 600px) {
-            .container {
-                padding: 20px;
-            }
-            .header {
-                font-size: 1.5em;
-            }
-            .message {
-                font-size: 1em;
-            }
-        }
     </style>
 </head>
 <body>
+    <pre class="background-text">⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                ⢀⠀⣀⣀⣤⣤⣤⣤⣀⣀⡀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣴⠟⣩⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣄
+⠀⠀⠀⠀⠀⠀⠀⠀⢀⠊⠀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦
+⠀⠀⠀⠀⠀⠀⠀⠀⠁⢀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷            
+⠀⠀⠀⠀⠀⠀⠀⢄⣀⣀⣬⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⠀⠀⠀⠀⠀⢀⣤⣾⣿⠙⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠉⠉⣿⣿⣿⣶⣄
+⠀⠀⠀⠀⠐⣻⢿⣿⢿⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⣿⣿⣿⣿⣿⡟⣠⣾⣿⣿⣿⣿⣿⠗⢄
+⠀⠀⠀⠀⠀⠠⢿⣿⡀⠀⠀⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢟⣾⣿⣿⣿⣿⠏⠀⠈⠉⣹⣿⣿⡉
+⠀⠀⠀⠀⠀⠀⠾⣿⠇⠀⠀⠀⠘⠛⢿⣿⣿⣿⣿⣛⣯⣷⣿⣿⣿⣿⣿⠿⠉⠀⠀⢀⣿⣿⣿⣿⣿⣆
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣴⣶⣿⣿⣿⣿⣿⣿⣿⠿⠋⠀⠀⠀⠀⠀⠀⠉⢿⣿⡿⠟⠛
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⣿⣿⣿⣿⣿⣿⡿⠁⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⣿⣿⣷⡀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⣿⣿⣿⣿⣿⣷⠀⠀⠀⠀⠀⠀⠰⣿⣿⣿⣿⣿⣿⣿⠂
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⣷
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⡷
+⠀⠀⠀⠀⠀⠀⠀⠀⢀⣶⣞⣴⣿⣿⣿⣿⣿⣿⣿⢿⠋⠀⠀⠀⠀⠀⠀⠀⢠⣤⣶⡾⠉⠉⠉
+⠀⠀⠀⠀⠀⠀⣠⡖⣩⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⡀⠀⠀⠀⠀⠀⡚⠉
+⠀⠀⢀⣤⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⠀⠀⠀⠀⣿⠁
+⣰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⡄⠀⣰⡟</pre>
+<pre class="right">
+    施局长，
+    情人节快乐💝
+</pre>
+<div class="firework">
 
-    <div class="container">
-        <div class="header">
-            施局长，深感抱歉
-        </div>
-        <div class="message">
-            我知道，最近发生的一些事情让你感到不安和失望。对此，我深感愧疚，并想借此机会向你表达我的歉意。<br><br>
-            我承认，我的某些行为和决定可能伤害了你，这绝非我的本意。我真诚地希望能够弥补这一切，改正错误，并且以更加成熟和理智的态度处理未来的事情。<br
+</div>
+<script>
+    const textElement = document.querySelector('.background-text');
+
+    setTimeout(() => {
+        textElement.classList.add('show');
+    }, 2000); // Delay for 3 seconds
+</script>
+    
+</body>
+</html>
