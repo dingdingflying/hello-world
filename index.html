@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>诚挚的道歉</title>
-    <style>
+<style>
         body {
             margin: 0;
             overflow: hidden; /* Prevent scrollbars */
@@ -21,7 +21,7 @@
             font-family: monospace; /* Use a monospace font for the effect */
             font-size: 15px; /* Adjust font size as needed */
             opacity: 0; /* Initially hidden */
-            transition: opacity 3s ease-in-out; /* Smooth transition */
+            transition: opacity 3s ease-in-out ; /* Smooth transition */
         }
 
         .background-text.show {
@@ -38,33 +38,54 @@
             50% { transform: scale(1.05); }
             100% { transform: scale(1); }
         }
-        .firework {
-  width: 50px;
-  height: 50px;
-  background-color: red;
-  border-radius: 50%;
-  position: absolute;
-  animation: explode 2s forwards;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+        .heart {
+      position: relative;
+      width: 100px;
+      height: 90px;
+      animation:  bounce-in-out 2s ease-in-out 1 forwards;
+    }
 
-}
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 50px;
+      height: 80px;
+      border-radius: 50px 50px 0 0;
+      background-color: red;
+    }
 
-@keyframes explode {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(3);
-    opacity: 0.5;
-  }
-  100% {
-    transform: scale(5);
-    opacity: 0;
-  }
-}
+    .heart::before {
+      left: 50px;
+      transform: rotate(-45deg);
+      transform-origin: 0 100%;
+    }
+
+    .heart::after {
+      left: 0;
+      transform: rotate(45deg);
+      transform-origin: 100% 100%;
+    }
+
+    @keyframes bounce-in-out {
+      0% {
+        transform: scale(0);
+        opacity: 0;
+      }
+      50% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      99% {
+        transform: scale(0);
+        opacity: 0;
+      }
+      100%{
+        display:none;
+      }
+    
+    }
         
 
     </style>
@@ -99,7 +120,7 @@
     施局长，
     情人节快乐💝
 </pre>
-<div class="firework">
+<div class="heart">
 
 </div>
 <script>
